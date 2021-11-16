@@ -1,0 +1,18 @@
+<style>
+  .foo {
+    color: red
+  }
+</style>
+
+<div>{{ counter }} {{ user?.name }}</div>
+<button (click)="load()">load</button>
+<button (click)="follow()">follow</button>
+
+<div *ngIf="user?.following?.length ?? 0 > 1">
+  <user
+    *ngFor="let follow of user?.following ?? []; trackBy: trackByFn"
+    [userId]="follow.entityId"
+  ></user>
+</div>
+
+<!-- <p>{{ render() }}</p> -->
